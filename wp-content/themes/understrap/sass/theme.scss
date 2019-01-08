@@ -1,0 +1,216 @@
+@import "theme/variables";  // <--------- Add your variables into this file. Also add variables to overwrite Bootstrap or UnderStrap variables here
+@import "assets/bootstrap4";// <--------- Loads Bootstrap3 or Bootstrap4. Change from /bootstrap3 to /bootstrap4 Watch out! just for testing in the moment!
+@import "understrap/understrap";// <-------- Loads the UnderStrap defaults. Just a few classes to incorporate BS in WP
+// @import "understrap/woocommerce";// <-------- Loads WooCommerce style fixes. Comment out if you aren't using WooCommerce
+
+//Optional files - If you dont use the corresponding scripts/fonts comment em out
+@import "assets/font-awesome"; // <------- Font Awesome Icon font
+@import "assets/underscores"; // <------- Underscores media styles
+
+// Any additional imported files //
+@import "theme/theme";  // <--------- That's where you can add your own design. Thats your part!
+@import "theme/post";  // <--------- That's where you can add your own design. Thats your part!
+@import "theme/contact-form7"; // Contact Form 7 - Bootstrap 4 support
+
+// @import 'custom/navbar';
+// @import 'custom/spinner';
+// @import 'custom/masthead';
+// @import 'custom/buttons';
+// @import 'custom/about';
+// @import 'custom/projects';
+// @import 'custom/subscribe';
+// @import 'custom/contact';
+// @import 'custom/card';
+// @import 'custom/post';
+
+@import url('https://fonts.googleapis.com/css?family=Lora:400,400i');
+@import url('https://fonts.googleapis.com/css?family=Lato:400,400i');
+
+// body {
+//   margin: 0;
+//   padding: 0;
+//   font-family: 'Lato', sans-serif;
+//   background: $gray-100;
+//   min-width: 320px;
+// }
+
+// .cinema-text{
+//   letter-spacing: 0.15rem;
+//   line-height: 2.2rem;
+// }
+
+// p {
+//   font-size: 17px !important;
+//   margin-bottom: 0;
+// }
+
+// a {
+//   color: $primary;
+//   &:focus,
+//   &:hover {
+//     text-decoration: none;
+//     color: darken($primary, 20%);
+//   }
+// }
+
+// blockquote{
+//   margin: 4rem 1rem;
+//   font-style: italic;
+//   background: #e0e0e0;
+//   border: 1px solid #c1c1c1;
+//   padding: 3rem 3rem 0;
+//   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 6px 7px rgba(0,0,0,0.24);
+//   transition: 200ms;
+//   // margin-bottom: 3rem;
+// }
+
+// blockquote:hover{
+//   transform: scale(1.02);
+// }
+
+// .home-background{
+//   background-image: url('http://api.everythinginall.com/wp-content/uploads/2018/12/mark-basarab-157611-unsplash-e1544579887233.jpg');
+//   background-repeat: none;
+//   background-size: cover;
+//   // background-attachment: fixed;
+// }
+
+// *::selection {
+//   background: #eae2d7; /* WebKit/Blink Browsers */
+// }
+// *::-moz-selection {
+//   background: #eae2d7; /* Gecko Browsers */
+// }
+
+// .bg-black {
+//   background-color: $black !important;
+// }
+
+// .bg-gray {
+//   background-color: $gray-200 !important;
+// }
+
+// .bg-primary {
+//   background-color: $primary !important;
+// }
+
+// #steven-headshot{
+//   max-width: 100px;
+//   border: 1px solid #eee;
+//   border-radius: 50%;
+//   margin: 10px;
+// }
+
+// #home-signiture{
+//   max-width: 200px;
+//   // margin: 10px;
+// }
+
+// .text-primary {
+//   color: $primary !important;
+// }
+
+// .scale-item {
+//   transition: ease-in-out 250ms;
+//   position: relative;
+//   z-index: 10;
+// }
+
+// .vh-100{
+//   height: 100vh;
+// }
+
+// .scale-item:hover {
+//   transform: scale(1.02);
+//   z-index: 100;
+// }
+
+
+// #headshot{
+//   border-radius: 50%;
+//   border: 1px solid $gray-200;
+//   width: 100%;
+//   height: 100%;
+// }
+
+// label{
+//   text-align: left !important;
+//   margin-bottom: 0;
+// }
+
+// input{
+//   border-radius: 3px;
+//   border: 1px solid #c1c1c1;
+//   margin: 0 0 0.5rem 0;
+//   padding: 3px 6px !important;
+// }
+
+// textarea{
+//   width: 100%;
+//   height: 100%;
+// }
+
+// input:focus{
+//   border: 1px solid $primary;
+// }
+
+// .bg-trans-dark{
+//   background: #00000080;
+//   border-radius: 3px;
+// }
+
+// .ws-normal{
+//   white-space: normal;
+// }
+
+
+// .btn{
+//   white-space: normal;
+//   z-index: 0;
+// }
+
+
+// footer {
+//   padding: 5rem 0;
+// }
+
+// .at-custom-sidebar{
+//   z-index: 1 !important;
+// }
+
+// @media only screen and (max-width: 768px) {
+//     .newsletter-header{
+//       font-size: 8vw;
+//     }
+//     .center-md{
+//       text-align: center !important;
+//       margin-bottom: 3px;
+//     }
+
+// }
+// @media only screen and (max-width: 456px) {
+//     #recent-posts{
+//       margin: 0 auto;
+//     }
+//     #view-all-posts{
+//        margin: 20px auto 0px auto;
+//     }
+//     .newsletter-header{
+//       font-size: 13vw;
+//     }
+// }
+
+// table, tr, th, td {
+//   border: 1px solid black;
+//   padding: 5px;
+//   border-radius: 3px;
+// }
+
+// .box-shadow{
+//   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 4px 7px rgba(0,0,0,0.24);
+// }
+
+// tbody{
+//   background: white;
+//   border-radius: 3px;
+// }
