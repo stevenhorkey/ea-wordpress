@@ -2,6 +2,130 @@
 var $ = jQuery;
 // import pdfmake from 'pdfmake';
 
+function createPDF(){
+
+  const title = this.state.post.yoast_meta.yoast_wpseo_title.trim();
+  const exerciseDescription = this.state.post.acf.exerciseDescription;
+  const questions = []
+  const answers = []
+  // let date = new Date();
+  //     date.setHours(0, 0, 0, 0);
+  //     date = date.toDateString();
+  let date = this.state.date;
+  $('.form-post').children('li').each(function() {
+    let question = $(this).html().trim();
+    // replace inputs with their values in the pdf
+    if(question.includes('<input')){
+      $(this).children('input').each(function() {
+        // console.log($(this).val());
+        let val = $(this).val();
+        if(!val) val = "____________________";
+        question = question.replace('<input type="text">',val);
+      })
+    }
+    // set temp div value to retrieve in order to remove html formating
+    question = $('#tempDiv').html(question).text();
+    // push question to questions list for pdfmake
+    questions.push(question);
+  });
+  
+  $('.form-post').children('.post-form-ta').each(function() {
+    let text = $(this).html().trim().replace(/<\/div>/g,'')
+    text = text.replace(/<div>/g,'\n').replace(/<br>/g,'\n');
+    answers.push(text);
+  });
+
+  let doc = {
+    footer: { 
+      text: "Everything In All - " + title,
+      style: "footer"
+    },
+    content: [
+      {
+        text: 'EVERYTHING IN ALL',
+        style: 'brand'
+      },
+      {
+        text: date,
+        style: 'date'
+      },
+      {
+        text: title,
+        style: 'title'
+      },
+      {
+        text: exerciseDescription,
+        style: 'description'
+      },
+      
+    ],
+    styles: {
+      brand: {
+        fontSize: 18,
+        bold: true,
+        alignment: 'center',
+        marginBottom: 16
+      },
+      title: {
+        fontSize: 16,
+        bold: true,
+        alignment: 'center',
+        marginBottom: 32
+      },
+      description: {
+        fontSize: 12,
+        bold: false,
+        alignment: 'justify',
+        marginBottom: 32
+      },
+      question: {
+        fontSize: 12,
+        italics: true,
+        marginBottom: 16,
+        bold: true
+      },
+      answer: {
+        fontSize: 12,
+        marginBottom: 32,
+        bold: false,
+        marginLeft: 20
+      },
+      footer: {
+        fontSize: 9,
+        // marginBottom: 32,
+        bold: false,
+        marginLeft: 36,
+        italics: true
+      },
+      date: {
+        // fontSize: 9,
+        marginBottom: 16,
+        // bold: false,
+        alignment: 'center',
+        // italics: true
+      }
+    }
+  }
+
+  for(let i = 0; i < questions.length; i++){
+    doc.content.push(
+      {
+      text: (i+1).toString() + '. ' + questions[i],
+      style: 'question'
+      },
+      {
+      text: answers[i],
+      style: 'answer'
+      }
+    )
+  }
+
+  const filename = title.replace(/ /g, '-').toLowerCase();
+
+  pdfMake.createPdf(doc).download(filename);
+ 
+}
+
 function renderWorksheetForm(){
     $(".form-post").children().after("<ion-icon class='remove-question' name=\"close\"></ion-icon><div class='post-form-ta' contenteditable=''></div><ion-icon class='add-question' name=\"add\"></ion-icon>");
     $(".form-post").prepend("<ion-icon class='add-question' name=\"add\"></ion-icon>");
