@@ -31,13 +31,35 @@ $post = get_post();
 			</div>
 			<!-- signature -->
 			<div class="row w-100 mx-auto py-5">
-				<img class="post-signature col-12" src="http://ea.local/wp-content/uploads/2019/01/signature.png"/>
+				<img class="post-signature" src="http://ea.local/wp-content/uploads/2019/01/signature.png"/>
 			</div>
 			<hr/>
 			<!-- subscribe form -->
-			<div></div>
+			<div>
+				<?php get_subscribe(); ?>
+			</div>
 			<!-- comments -->
-			<div></div>
+			<div class="w-100">
+				<div id="disqus_thread"></div>
+				<script defer>
+				/**
+				*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+				*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+				
+				var disqus_config = function () {
+					this.page.url = "<?php echo home_url( $wp->request ) ?>";  // Replace PAGE_URL with your page's canonical URL variable
+					this.page.identifier = <?php echo $post->ID ?>; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+				};
+				
+				(function() { // DON'T EDIT BELOW THIS LINE
+				var d = document, s = d.createElement('script');
+				s.src = 'https://everything-in-all-1.disqus.com/embed.js';
+				s.setAttribute('data-timestamp', +new Date());
+				(d.head || d.body).appendChild(s);
+				})();
+				</script>
+				<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+			</div>
 			
 			<footer class="entry-footer">
 			

@@ -1,24 +1,24 @@
 // custom js
 var $ = jQuery;
-// import pdfmake from 'pdfmake';
+
 
 function createPDF(){
-
-  const title = this.state.post.yoast_meta.yoast_wpseo_title.trim();
-  const exerciseDescription = this.state.post.acf.exerciseDescription;
-  const questions = []
-  const answers = []
-  // let date = new Date();
-  //     date.setHours(0, 0, 0, 0);
-  //     date = date.toDateString();
-  let date = this.state.date;
+  var title = post.post_title;
+  const exerciseDescription = post.post_excerpt;
+  var questions = []
+  var answers = []
+  var date = new Date();
+      date.setHours(0, 0, 0, 0);
+      date = date.toDateString();
+  // var date = this.state.date;
+  console.log('lk')
   $('.form-post').children('li').each(function() {
-    let question = $(this).html().trim();
+    var question = $(this).html().trim();
     // replace inputs with their values in the pdf
     if(question.includes('<input')){
       $(this).children('input').each(function() {
         // console.log($(this).val());
-        let val = $(this).val();
+        var val = $(this).val();
         if(!val) val = "____________________";
         question = question.replace('<input type="text">',val);
       })
@@ -30,12 +30,12 @@ function createPDF(){
   });
   
   $('.form-post').children('.post-form-ta').each(function() {
-    let text = $(this).html().trim().replace(/<\/div>/g,'')
+    var text = $(this).html().trim().replace(/<\/div>/g,'')
     text = text.replace(/<div>/g,'\n').replace(/<br>/g,'\n');
     answers.push(text);
   });
 
-  let doc = {
+  var doc = {
     footer: { 
       text: "Everything In All - " + title,
       style: "footer"
@@ -107,7 +107,7 @@ function createPDF(){
     }
   }
 
-  for(let i = 0; i < questions.length; i++){
+  for(var i = 0; i < questions.length; i++){
     doc.content.push(
       {
       text: (i+1).toString() + '. ' + questions[i],
@@ -122,6 +122,8 @@ function createPDF(){
 
   const filename = title.replace(/ /g, '-').toLowerCase();
 
+  console.log(pdfMake)
+
   pdfMake.createPdf(doc).download(filename);
  
 }
@@ -135,7 +137,7 @@ function renderWorksheetForm(){
       $(this).attr("contenteditable","true");
       // create subtext
       if($(this).html().includes(" : ")){
-        let liParts = $(this).html().split(" : ");
+        var liParts = $(this).html().split(" : ");
         $(this).html(liParts[0]);
         $(this).after(`<small contenteditable='true' class="li-subtext">${liParts[1]}</small>`);
       }
@@ -160,9 +162,9 @@ $( document ).ready(function() {
     renderWorksheetForm();
 
     /* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
-    let prevScrollpos = window.pageYOffset;
+    var prevScrollpos = window.pageYOffset;
     window.onscroll = function() {
-      let currentScrollPos = window.pageYOffset;
+      var currentScrollPos = window.pageYOffset;
       if (prevScrollpos > currentScrollPos) {
         document.getElementsByClassName("navbar")[0].style.top = "0";
         document.getElementsByClassName("post-btns")[0].style.top = "56px";
@@ -184,6 +186,10 @@ $( document ).ready(function() {
     document.body.appendChild(addThis);
     document.body.appendChild(icons);
 
+    $("#create-pdf").click(function(){
+      console.log(post);
+      createPDF();
+    })
 
 
 

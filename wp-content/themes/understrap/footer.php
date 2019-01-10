@@ -45,8 +45,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 </div><!-- #page we need this extra closing tag here -->
 
 <?php wp_footer(); ?>
-<script src="http://ea.local/wp-content/themes/understrap/js/custom.js"></script>
-<script src="http://ea.local/wp-content/themes/understrap/js/post_form.js"></script>
+<script defer  src="http://ea.local/wp-content/themes/understrap/js/custom.js"></script>
 
 
 

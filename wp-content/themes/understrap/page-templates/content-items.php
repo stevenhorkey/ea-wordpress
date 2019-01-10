@@ -40,7 +40,7 @@ get_hero();
 				<div class="col-md-6 my-3 scale-item">
 					<a href="<?php echo get_site_url().'/'.$slug ?>">
 						<div class="h-100 post-card d-flex align-items-center justify-content-center text-center text-uppercase flex-column" style="
-							background-image: linear-gradient(#00000033, #00000033), url('<?php echo $src ?>');
+							background-image: linear-gradient(#00000060, #00000060), url('<?php echo $src ?>');
 						">
 							<h3 class="text-light"><?php the_title(); ?></h3>
 							<h5 class="text-light"><?php the_subtitle(); ?></h5>

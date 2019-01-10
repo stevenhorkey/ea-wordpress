@@ -46,12 +46,16 @@ get_hero();
 				</a>
 			</div>
 		</div>
-		<div class="row pb-5 d-flex align-items-center row-eq-height">
+		<div class="row row-eq-height pb-5">
 			<?php 
 			// the query
 			$the_query = new WP_Query( array(
 				'posts_per_page' => 8,
 			)); 
+			$the_query->the_post(); 
+				$slug = basename( get_permalink() );
+				$src = wp_get_attachment_image_src( get_post_thumbnail_id( $the_query->ID ), 'large', false )[0];
+				if(!$src) $src = "https://source.unsplash.com/collection/1242150/2000x1200";
 			?>
 
 			<?php if ( $the_query->have_posts() ) : ?>
@@ -62,9 +66,9 @@ get_hero();
 			?>
 
 				<div class="col-md-6 my-3 scale-item">
-					<a href="<?php echo get_site_url().'/'.$slug;?>">
-						<div class="post-card d-flex align-items-center justify-content-center flex-column" style="
-							background: linear-gradient(#00000033, #00000033), url('<?php $src ?>');
+					<a href="<?php echo get_site_url().'/'.$slug ?>">
+						<div class="h-100 post-card d-flex align-items-center justify-content-center text-center text-uppercase flex-column" style="
+							background-image: linear-gradient(#00000033, #00000033), url('<?php echo $src ?>');
 						">
 							<h3 class="text-light"><?php the_title(); ?></h3>
 							<h5 class="text-light"><?php the_subtitle(); ?></h5>

@@ -12,7 +12,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header();
 get_hero();
 $container = get_theme_mod( 'understrap_container_type' );
+
 ?>
+
+<div class="container">
+	<div class="row mt-3 font-italic">
+		<span class="col-md-8"><?php the_title(); ?></span>
+		<span class="col-md-4 text-right">Published <?php the_time('l, F jS, Y'); ?></span>
+	</div>
+</div>
+<hr class="w-100"/>
 
 <div class="wrapper" id="single-wrapper">
 
@@ -22,13 +31,12 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 			
 			<main class="site-main single-post w-100" id="main">
-
 			<!-- toolbar -->
 			<div class="post-btns bg-light">
-				<!-- <img onClick={this.createPDF} src={documentSVG} /> -->
-				<!-- <img onClick={this.downloadJSON} src={downloadSVG} />
-				<img data-toggle="modal" data-target="#uploadJSONmodal" src={uploadSVG} />
-				<div><ion-icon data-toggle="modal" data-target="#uploadJSONmodal" name="log-in"></ion-icon></div> -->
+				<ion-icon id="create-pdf"  name="document"></ion-icon>
+				<!-- <img onclick="downloadJSON()" src={downloadSVG} />
+				<img data-toggle="modal" data-target="#uploadJSONmodal" src={uploadSVG} /> -->
+				<!-- <div><ion-icon data-toggle="modal" data-target="#uploadJSONmodal" name="document"></ion-icon></div> -->
 				<div class="addthis_inline_share_toolbox"></div>
 			</div>
 
@@ -47,7 +55,9 @@ $container = get_theme_mod( 'understrap_container_type' );
                   </div>
                 </div>
               </div>
-            </div>
+						</div>
+						
+						
 
 				<?php while ( have_posts() ) : the_post(); ?>
 
@@ -63,4 +73,16 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 </div><!-- #single-wrapper -->
 
-<?php get_footer(); ?>
+<script defer  src="http://ea.local/wp-content/themes/understrap/js/post_form.js"></script>
+<script defer  src="http://ea.local/wp-content/themes/understrap/js/pdfmake/pdfmake.min.js"></script>
+<script defer  src="http://ea.local/wp-content/themes/understrap/js/pdfmake/vfs_fonts.js"></script>
+<script defer >
+	var post = <?php echo json_encode($post); ?>
+</script>
+
+<?php 
+
+
+get_footer(); 
+
+?>
