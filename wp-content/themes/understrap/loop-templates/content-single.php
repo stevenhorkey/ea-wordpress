@@ -30,12 +30,14 @@ $post = get_post();
 				</div><!-- .entry-content -->
 			</div>
 			<!-- signature -->
-			<div class="row w-100 mx-auto py-5">
+			<em class="mx-auto">With love,</em>
+			<div class="row w-100 mx-auto pb-5 pt-3">
+				
 				<img class="post-signature" src="http://ea.local/wp-content/uploads/2019/01/signature.png"/>
 			</div>
 			<hr/>
 			<!-- subscribe form -->
-			<div>
+			<div class="post-subscribe p-4 box-shadow my-3">
 				<?php get_subscribe(); ?>
 			</div>
 			<!-- comments -->

@@ -73,10 +73,10 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 </div><!-- #single-wrapper -->
 
-<script defer  src="http://ea.local/wp-content/themes/understrap/js/post_form.js"></script>
-<script defer  src="http://ea.local/wp-content/themes/understrap/js/pdfmake/pdfmake.min.js"></script>
-<script defer  src="http://ea.local/wp-content/themes/understrap/js/pdfmake/vfs_fonts.js"></script>
-<script defer >
+<script defer src="http://ea.local/wp-content/themes/understrap/js/post_form.js"></script>
+<script defer src="http://ea.local/wp-content/themes/understrap/js/pdfmake/pdfmake.min.js"></script>
+<script defer src="http://ea.local/wp-content/themes/understrap/js/pdfmake/vfs_fonts.js"></script>
+<script defer>
 	var post = <?php echo json_encode($post); ?>
 </script>
 

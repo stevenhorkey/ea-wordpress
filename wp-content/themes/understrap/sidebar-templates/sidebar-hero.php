@@ -40,7 +40,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	</div><!-- .carousel -->
 
-	<script>
+	<script defer>
 	jQuery( ".carousel-item" ).first().addClass( "active" );
 	</script>
 
